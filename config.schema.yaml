@@ -14,6 +14,7 @@ password:
     Secret string field. For passwords and other kinds of information you don't
     want others to read over your shoulder.
   type: "string"
+  secret: true
 
 type:
   description: "Enumerator. Pick one value out of the set provided."
