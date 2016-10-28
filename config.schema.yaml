@@ -6,7 +6,7 @@ token:
   required: true
 
 user:
-  description: "Simple string field"
+  description: "Simple string field."
   type: "string"
 
 password:
@@ -76,7 +76,7 @@ the_object:
 
     repositories:
       type: array
-      description: List of strings of certain regerp pattern. Also a property of the same object.
+      description: List of strings of certain regexp pattern. Also a property of the same object.
       items:
         type: string
         pattern: ^\w+/\w+$
