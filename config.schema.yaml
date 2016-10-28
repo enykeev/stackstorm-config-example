@@ -1,0 +1,86 @@
+---
+token:
+  description: "Field with jinja expression as default value."
+  type: "string"
+  default: "{{system.github_oauth_token}}"
+  required: true
+
+user:
+  description: "Simple string field"
+  type: "string"
+
+password:
+  description: |
+    Secret string field. For passwords and other kinds of information you don't
+    want others to read over your shoulder.
+  type: "string"
+
+type:
+  description: "Enumerator. Pick one value out of the set provided."
+  type: "string"
+  default: "public"
+  enum:
+    - "public"
+    - "enterprise"
+  required: true
+
+url:
+  description: "URI-formated string."
+  type: "string"
+  default: "http://httpbin.org/"
+  format: uri
+  required: true
+
+the_object:
+  type: object
+  properties:
+    event_type:
+      type: array
+      items:
+        enum:
+          # https://developer.github.com/v3/activity/events/types/
+          - CommitCommentEvent
+          - CreateEvent
+          - DeleteEvent
+          - DeploymentEvent
+          - DeploymentStatusEvent
+          - DownloadEvent
+          - FollowEvent
+          - ForkEvent
+          - ForkApplyEvent
+          - GistEvent
+          - GollumEvent
+          - IssueCommentEvent
+          - IssuesEvent
+          - MemberEvent
+          - MembershipEvent
+          - PageBuildEvent
+          - PublicEvent
+          - PullRequestEvent
+          - PullRequestReviewCommentEvent
+          - PushEvent
+          - ReleaseEvent
+          - RepositoryEvent
+          - StatusEvent
+          - TeamAddEvent
+          - WatchEvent
+      description: List of enums or an enum with multiple choises. Part of the object.
+      default:
+        - IssuesEvent
+        - IssueCommentEvent
+        - ForkEvent
+        - WatchEvent
+        - ReleaseEvent
+        - PushEvent
+
+    repositories:
+      type: array
+      description: List of strings of certain regerp pattern. Also a property of the same object.
+      items:
+        type: string
+        pattern: ^\w+/\w+$
+
+bool:
+  type: boolean
+  description: Boolean value.
+  default: False
