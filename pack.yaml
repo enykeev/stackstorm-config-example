@@ -1,5 +1,5 @@
 ---
-name: config-example
+name: config_example
 description: Illustrates interactive configuration in action
 version: 0.0.1
 author: enykeev
